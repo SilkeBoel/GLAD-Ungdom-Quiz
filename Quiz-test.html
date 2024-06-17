@@ -21,21 +21,22 @@
 <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: rgb(214, 117, 117);
-    }
+      color:#000000;
+      background-color: #ffffff;
+    } 
     
     #quiz {
       max-width: 500px;
       margin: 0 auto;
       padding: 20px;
-      background-color: #66ebf0;
+      background-color: #B1BF93;
       border-radius: 5px;
-      box-shadow: 0 0 10px rgba(198, 222, 60, 0.2);
+      box-shadow: 0 0 10px #989898;
     }
     
     h1 {
       text-align: center;
-      color: #333333;
+      color:#000000;
     }
     
     #question {
@@ -52,15 +53,16 @@
       display: block;
       margin: 0 auto;
       padding: 10px 20px;
-      background-color: yellow;
-      color: #131313;
+      background-color: #194841;
+      color: #ffffff;
       border: none;
       border-radius: 5px;
       cursor: pointer;
     }
     
     button:hover {
-      background-color: #8f8d8d;
+      background-color: #ffffff;
+      color: #000000;
     }
     </style>
 
@@ -69,7 +71,12 @@
 <!--JavaScript-->
 <script>
     const quizData = [
-     {
+    {
+      question: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      options: ["Tag quizen"],
+      answer: "Tag quizen"
+    },
+    {
       question: "Du bliver hurtigere ædru hvis du danser meget.",
       options: ["Myte", "Fakta"],
       answer: "Myte"
@@ -190,7 +197,7 @@
   function showResult() {
     quiz.innerHTML = `
       <h1>Quiz Completed!</h1>
-      <p>Your score: ${score-8}/${quizData.length-8}</p>
+      <p>Your score: ${score-9}/${quizData.length-9}</p>
     `;
   }
   
