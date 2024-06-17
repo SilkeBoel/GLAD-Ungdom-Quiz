@@ -73,10 +73,10 @@
   //Her er alle spørgsmålene(questions), svarmulighederne(options) samt det rigtige svar(answer)
     const quizData = [
     {
-      //Det første spørgsmål er sat til at være en "start quizen" knap
+      //Det første spørgsmål er sat til at være en "start quizzen" knap
       question: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-      options: ["Tag quizen"],
-      answer: "Tag quizen"
+      options: ["Tag quizzen"],
+      answer: "Tag quizzen"
     },
     {
       question: "Du bliver hurtigere ædru hvis du danser meget.",
@@ -166,15 +166,20 @@
   const quizElement = document.getElementById("quiz");
   
   //Har er det første spørgsmål sat til at være 0, og brugerens point sat til at starte på 0.
-  //Dette sørger for at quizen starter med det første spørgsmål.
+  //Dette sørger for at quizzen starter med det første spørgsmål.
   let currentQuestion = 0;
   let score = 0;
   
   //Her er funktionen der viser et spørgsmål af gangen med de rigtige svarmuligheder.
+  //Den henter det nuværende spørgsmål fra quizData ved at bruge currentQuestion
+  //innerText finder teksten til spørgsmålet
   function showQuestion() {
     const question = quizData[currentQuestion];
     questionElement.innerText = question.question;
   
+  //Her er knapperne med svarmulighederne
+  //innerHTML fjerner de gamle svarmuligheder
+  //Herefter bliver der lavet en knap for hver svarmulighed, som har en eventListener der venter på at man klikker på en af knapperne
     optionsElement.innerHTML = "";
     question.options.forEach(option => {
       const button = document.createElement("button");
@@ -184,16 +189,23 @@
     });
   }
   
+  //selectAnswer sørger for hvad der sker når man klikker på en af knapperne med svarmulighederne
   function selectAnswer(e) {
+  //e.target holder styr på hvilken knap der blev klikket på og linjen under tjekker om svaret var korrekt
     const selectedButton = e.target;
     const answer = quizData[currentQuestion].answer;
   
+  //Hvis svaret er korrekt, får brugeren et point
     if (selectedButton.innerText === answer) {
       score++;
     }
   
+  //Der bliver tilføjet et "point" til det spørgsmål man er nået til, så man kommer til næste spørgsmål
     currentQuestion++;
   
+  //Her bliver der tjekket om der er flere spørgsmål
+  //Hvis ja, næste spørgsmål bliver vist
+  //Hvis ikke, så bliver resultater vist
     if (currentQuestion < quizData.length) {
       showQuestion();
     } else {
@@ -201,19 +213,28 @@
     }
   }
   
+  //Funktionen der viser resultatet for quizzen
   function showResult() {
     quiz.innerHTML =
-      `<h1>Du har gennemført quizen!</h1>
+    //Teksten ønsker en tillykke for at have gennemført quizzen
+    //Herefter viser den ens point/antal rigtige svar i quizzen.
+    //Der er -9, da quizzen starter med et "spørgmålet" om man vil tage quizzen, og hvert andet "spørgsmål" er et svar/en forklaring af
+    //spørgsmålet man lige har svaret på. Disse "spørgsmål" skal ikke give point
+      `<h1>Du har gennemført quizzen!</h1>
       <p>Du scorede: ${score-9}/${quizData.length-9}</p>
-      <button id="retry">Retry</button>`;
+      <button id="retry">Prøv igen</button>`;
+    //Til sidst er der en prøv igen knap
 
+    //Her er retry knappen, med en eventListener der venter på at man klikker på knappen
       const retryButton = document.getElementById("retry");
       retryButton.addEventListener("click", retryQuiz);
   }
   
+  //Når man klikker på retry knappen bliver siden genindlæst, og man kommer automatisk til det første "spørgsmål" om at tage quizzen
   function retryQuiz() {
     location.reload();
   }
 
+  //showQuestion viser det første spørgsmål når koden kører for første gang
   showQuestion();
 </script>
