@@ -70,8 +70,10 @@
 
 <!--JavaScript-->
 <script>
+  //Her er alle spørgsmålene(questions), svarmulighederne(options) samt det rigtige svar(answer)
     const quizData = [
     {
+      //Det første spørgsmål er sat til at være en "start quizen" knap
       question: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
       options: ["Tag quizen"],
       answer: "Tag quizen"
@@ -157,13 +159,18 @@
       answer: "Næste spørgsmål"
     },
     ];
-
-    const questionElement = document.getElementById("question");
-  const optionsElement = document.getElementById("options");
   
+  //Her bliver spørgsmålene og svarmulighederne hentet
+  const questionElement = document.getElementById("question");
+  const optionsElement = document.getElementById("options");
+  const quizElement = document.getElementById("quiz");
+  
+  //Har er det første spørgsmål sat til at være 0, og brugerens point sat til at starte på 0.
+  //Dette sørger for at quizen starter med det første spørgsmål.
   let currentQuestion = 0;
   let score = 0;
   
+  //Her er funktionen der viser et spørgsmål af gangen med de rigtige svarmuligheder.
   function showQuestion() {
     const question = quizData[currentQuestion];
     questionElement.innerText = question.question;
@@ -195,12 +202,18 @@
   }
   
   function showResult() {
-    quiz.innerHTML = `
-      <h1>Quiz Completed!</h1>
-      <p>Your score: ${score-9}/${quizData.length-9}</p>
-    `;
+    quiz.innerHTML =
+      `<h1>Du har gennemført quizen!</h1>
+      <p>Du scorede: ${score-9}/${quizData.length-9}</p>
+      <button id="retry">Retry</button>`;
+
+      const retryButton = document.getElementById("retry");
+      retryButton.addEventListener("click", retryQuiz);
   }
   
-  showQuestion();
+  function retryQuiz() {
+    location.reload();
+  }
 
+  showQuestion();
 </script>
