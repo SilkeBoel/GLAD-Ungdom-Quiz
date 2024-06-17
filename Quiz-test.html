@@ -6,6 +6,16 @@
 <!--HTML-->
 <head>
     <title>Myte eller fakta?</title>
+
+    <!--Google font for Open Sans-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <!--Google font for Rubik-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="quiz">
@@ -21,50 +31,55 @@
 <style>
   /*Her er farverne på teksten, sidens baggrund og fonten brugt på siden*/
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Open Sans", sans-serif;
+      font-size: large;
       color:#000000;
       background-color: #ffffff;
     } 
   /*Her er udseenet på quizzen*/
   /*Dette inkludere størrelsen, kanten, samt farverne*/
     #quiz {
-      max-width: 500px;
+      max-width: 800px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 40px;
+      height: 250px;
       background-color: #B1BF93;
-      border-radius: 5px;
-      box-shadow: 0 0 10px #989898;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #989898;
     }
     
   /*Udseendet af "overskriften" til quizzen kan findes her*/
     h1 {
       text-align: center;
+      font-family: "Rubik", sans-serif;
       color:#000000;
     }
     
   /*Hvor stor afstand der nedderst på quizzen*/
     #question {
-      margin-bottom: 20px;
+      margin-bottom: 50px;
     }
     
   /*Opstillingen af knapperne til svarmulighederne. De vises i et grid, 2 spørgsmål af gangen vandret*/
     #options {
-      display: grid;
-      gap: 10px;
-      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      justify-content: center;
+      display: flex;
+      flex-direction: row;
     }
     
   /*Udseendet til knapperne for svarmulighederne*/
   /*Dette inkludere farverne og afstanden til kanten af knappen.*/
     button {
       display: block;
-      margin: 0 auto;
       padding: 10px 20px;
       background-color: #194841;
       color: #ffffff;
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      font-family: "Rubik", sans-serif;
+      font-size: medium;
     }
     
   /*Hover effekt for knapperne med svarmulighederne*/
@@ -82,7 +97,7 @@
     const quizData = [
     {
       //Det første spørgsmål er sat til at være en "start quizzen" knap
-      question: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      question: "Kan du adskille fakta fra de mange myter om alkohol? Tag quizzen og find ud af det i dag.",
       options: ["Tag quizzen"],
       answer: "Tag quizzen"
     },
@@ -92,7 +107,7 @@
       answer: "Myte"
     },
     {
-      question: "Myte. Man forbrænder ikke alkohol hurtigere om man danser meget, sover eller supplerer alkoholindtaget med vand.",
+      question: "Myte! Man forbrænder ikke alkohol hurtigere om man danser meget, sover eller supplerer alkoholindtaget med vand.",
       options: ["Næste spørgsmål"],
       answer: "Næste spørgsmål"
     },
@@ -102,7 +117,7 @@
       answer: "Fakta"
     },
     {
-      question: "Fakta. Det har ikke noget med alderen at gøre, men det fact at 16-årige ikke er færdig med at vokse endnu, og ikke har opbygget en alkoholtolerance som nogle voksne har.",
+      question: "Fakta! Det har ikke noget med alderen at gøre, men det fact at 16-årige ikke er færdig med at vokse endnu, og ikke har opbygget en alkoholtolerance som nogle voksne har.",
       options: ["Næste spørgsmål"],
       answer: "Næste spørgsmål"
     },
@@ -112,7 +127,7 @@
       answer: "Fakta"
     },
     {
-      question: "Fakta. Andel af de 15 til 16-årige, der har drukket alkohol indenfor sidste måned var, ifølge en undersøgelse fra 2019, 74% modsat gennemsnittet i resten af europa på 47%",
+      question: "Fakta! Andel af de 15 til 16-årige, der har drukket alkohol indenfor sidste måned var, ifølge en undersøgelse fra 2019, 74% modsat gennemsnittet i resten af europa på 47%",
       options: ["Næste spørgsmål"],
       answer: "Næste spørgsmål"
     },
@@ -122,7 +137,7 @@
       answer: "Myte"
     },
     {
-      question: "Myte. Genstandsgrænserne gælder kun for voksne – unge kan tåle meget mindre. Tallene angiver ikke, hvor meget voksne gerne må drikke, men at det er sundhedsskadeligt at drikke mere. Derfor kaldes det højrisikogrænsen.",
+      question: "Myte! Genstandsgrænserne gælder kun for voksne – unge kan tåle meget mindre. Tallene angiver ikke, hvor meget voksne gerne må drikke, men at det er sundhedsskadeligt at drikke mere. Derfor kaldes det højrisikogrænsen.",
       options: ["Næste spørgsmål"],
       answer: "Næste spørgsmål"
     },
@@ -132,7 +147,7 @@
       answer: "Fakta"
     },
     {
-      question: "Fakta. Man må højst have en promille på 0,5, når man kører på cykel.",
+      question: "Fakta! Man må højst have en promille på 0,5, når man kører på cykel.",
       options: ["Næste spørgsmål"],
       answer: "Næste spørgsmål"
     },
@@ -142,7 +157,7 @@
       answer: "Myte"
     },
     {
-      question: "Myte. Du vil føle dig varmere, men din temperatur vil ikke stige.",
+      question: "Myte! Du vil føle dig varmere, men din temperatur vil ikke stige.",
       options: ["Næste spørgsmål"],
       answer: "Næste spørgsmål"
     },
@@ -152,7 +167,7 @@
       answer: "Myte"
     },
     {
-      question: "Myte. Det dræber ikke hjerneceller, men kan skade hjernen hvis man drikker meget og ofte",
+      question: "Myte! Det dræber ikke hjerneceller, men kan skade hjernen hvis man drikker meget og ofte",
       options: ["Næste spørgsmål"],
       answer: "Næste spørgsmål"
     },
@@ -162,7 +177,7 @@
       answer: "Fakta"
     },
     {
-      question: "Fakta. Hvis du drikker for meget for ofte, nedsætter alkoholen mængden af det hormon, der får nyrerne til at holde på vandet i kroppen, så du udskiller mere vand. Det giver hovedpine, men betyder også, at din hud bliver mere udtørret, hvilket kan føre til flere rynker.",
+      question: "Fakta! Hvis du drikker for meget for ofte, nedsætter alkoholen mængden af det hormon, der får nyrerne til at holde på vandet i kroppen, så du udskiller mere vand. Det giver hovedpine, men betyder også, at din hud bliver mere udtørret, hvilket kan føre til flere rynker.",
       options: ["Næste spørgsmål"],
       answer: "Næste spørgsmål"
     },
