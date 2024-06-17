@@ -64,6 +64,8 @@
     }
     </style>
 
+
+
 <!--JavaScript-->
 <script>
     const quizData = [
@@ -83,9 +85,19 @@
       answer: "Fakta"
     },
     {
+      question: "Fakta. Det har ikke noget med alderen at gøre, men det fact at 16-årige ikke er færdig med at vokse endnu, og ikke har opbygget en alkoholtolerance som nogle voksne har.",
+      options: ["Næste spørgsmål"],
+      answer: "Næste spørgsmål"
+    },
+    {
       question: "Danske unge er europamestre i at drikke.",
       options: ["Myte", "Fakta"],
       answer: "Fakta"
+    },
+    {
+      question: "Fakta. Andel af de 15 til 16-årige, der har drukket alkohol indenfor sidste måned var, ifølge en undersøgelse fra 2019, 74% modsat gennemsnittet i resten af europa på 47%",
+      options: ["Næste spørgsmål"],
+      answer: "Næste spørgsmål"
     },
     {
       question: "Piger må drikke 14 genstande og drenge 21 genstande om ugen.",
@@ -93,9 +105,19 @@
       answer: "Myte"
     },
     {
+      question: "Myte. Genstandsgrænserne gælder kun for voksne – unge kan tåle meget mindre. Tallene angiver ikke, hvor meget voksne gerne må drikke, men at det er sundhedsskadeligt at drikke mere. Derfor kaldes det højrisikogrænsen.",
+      options: ["Næste spørgsmål"],
+      answer: "Næste spørgsmål"
+    },
+    {
       question: "Der er promillegrænser for, hvornår man må køre på cykel, ligesom når man kører bil.",
       options: ["Myte", "Fakta"],
       answer: "Fakta"
+    },
+    {
+      question: "Fakta. Man må højst have en promille på 0,5, når man kører på cykel.",
+      options: ["Næste spørgsmål"],
+      answer: "Næste spørgsmål"
     },
     {
       question: "Din temperatur stiger når du drikker alkohol",
@@ -103,14 +125,29 @@
       answer: "Myte"
     },
     {
+      question: "Myte. Du vil føle dig varmere, men din temperatur vil ikke stige.",
+      options: ["Næste spørgsmål"],
+      answer: "Næste spørgsmål"
+    },
+    {
       question: "Alkohol dræber hjerneceller",
       options: ["Myte", "Fakta"],
       answer: "Myte"
     },
     {
+      question: "Myte. Det dræber ikke hjerneceller, men kan skade hjernen hvis man drikker meget og ofte",
+      options: ["Næste spørgsmål"],
+      answer: "Næste spørgsmål"
+    },
+    {
       question: "Alkohol giver flere rynker",
       options: ["Myte", "Fakta"],
       answer: "Fakta"
+    },
+    {
+      question: "Fakta. Hvis du drikker for meget for ofte, nedsætter alkoholen mængden af det hormon, der får nyrerne til at holde på vandet i kroppen, så du udskiller mere vand. Det giver hovedpine, men betyder også, at din hud bliver mere udtørret, hvilket kan føre til flere rynker.",
+      options: ["Næste spørgsmål"],
+      answer: "Næste spørgsmål"
     },
     ];
 
@@ -153,7 +190,7 @@
   function showResult() {
     quiz.innerHTML = `
       <h1>Quiz Completed!</h1>
-      <p>Your score: ${score-1}/${quizData.length-1}</p>
+      <p>Your score: ${score-8}/${quizData.length-8}</p>
     `;
   }
   
