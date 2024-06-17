@@ -19,12 +19,14 @@
 
 <!--CSS-->
 <style>
+  /*Her er farverne på teksten, sidens baggrund og fonten brugt på siden*/
     body {
       font-family: Arial, sans-serif;
       color:#000000;
       background-color: #ffffff;
     } 
-    
+  /*Her er udseenet på quizzen*/
+  /*Dette inkludere størrelsen, kanten, samt farverne*/
     #quiz {
       max-width: 500px;
       margin: 0 auto;
@@ -34,21 +36,26 @@
       box-shadow: 0 0 10px #989898;
     }
     
+  /*Udseendet af "overskriften" til quizzen kan findes her*/
     h1 {
       text-align: center;
       color:#000000;
     }
     
+  /*Hvor stor afstand der nedderst på quizzen*/
     #question {
       margin-bottom: 20px;
     }
     
+  /*Opstillingen af knapperne til svarmulighederne. De vises i et grid, 2 spørgsmål af gangen vandret*/
     #options {
       display: grid;
       gap: 10px;
       grid-template-columns: repeat(2, 1fr);
     }
     
+  /*Udseendet til knapperne for svarmulighederne*/
+  /*Dette inkludere farverne og afstanden til kanten af knappen.*/
     button {
       display: block;
       margin: 0 auto;
@@ -60,6 +67,7 @@
       cursor: pointer;
     }
     
+  /*Hover effekt for knapperne med svarmulighederne*/
     button:hover {
       background-color: #ffffff;
       color: #000000;
