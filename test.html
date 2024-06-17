@@ -1,0 +1,123 @@
+<html>
+<head>
+  <title>Interactive Quiz</title>
+</head>
+<body>
+  <div id="quiz">
+    <h1>Interactive Quiz | By CodePicker</h1>
+    <div id="question"></div>
+    <div id="options"></div>
+  </div>
+</body>
+</html>
+
+
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgb(214, 117, 117);
+}
+
+#quiz {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #66ebf0;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(198, 222, 60, 0.2);
+}
+
+h1 {
+  text-align: center;
+  color: #333333;
+}
+
+#question {
+  margin-bottom: 20px;
+}
+
+#options {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: yellow;
+  color: #131313;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #8f8d8d;
+}
+</style>
+
+
+
+<script>
+  const quizData = [
+    {
+      question: "What is the capital of France?",
+      options: ["Paris", "Madrid", "Rome", "Berlin"],
+      answer: "Paris"
+    },
+    {
+      question: "What is the largest planet in our solar system?",
+      options: ["Jupiter", "Saturn", "Mars", "Earth"],
+      answer: "Jupiter"
+    },
+    // Add more questions here...
+  ];
+  
+  const questionElement = document.getElementById("question");
+  const optionsElement = document.getElementById("options");
+  
+  let currentQuestion = 0;
+  let score = 0;
+  
+  function showQuestion() {
+    const question = quizData[currentQuestion];
+    questionElement.innerText = question.question;
+  
+    optionsElement.innerHTML = "";
+    question.options.forEach(option => {
+      const button = document.createElement("button");
+      button.innerText = option;
+      optionsElement.appendChild(button);
+      button.addEventListener("click", selectAnswer);
+    });
+  }
+  
+  function selectAnswer(e) {
+    const selectedButton = e.target;
+    const answer = quizData[currentQuestion].answer;
+  
+    if (selectedButton.innerText === answer) {
+      score++;
+    }
+  
+    currentQuestion++;
+  
+    if (currentQuestion < quizData.length) {
+      showQuestion();
+    } else {
+      showResult();
+    }
+  }
+  
+  function showResult() {
+    quiz.innerHTML = `
+      <h1>Quiz Completed!</h1>
+      <p>Your score: ${score}/${quizData.length}</p>
+    `;
+  }
+  
+  showQuestion();
+</script>

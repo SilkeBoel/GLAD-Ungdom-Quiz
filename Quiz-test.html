@@ -1,0 +1,162 @@
+<!DOCTYPE html> 
+<html lang="da">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+<!--HTML-->
+<head>
+    <title>Myte eller fakta?</title>
+</head>
+<body>
+    <div id="quiz">
+        <h1>Myte eller fakta?</h1>
+        <div id="question"></div>
+        <div id="options"></div>
+    </div>
+</body>
+
+
+
+<!--CSS-->
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: rgb(214, 117, 117);
+    }
+    
+    #quiz {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #66ebf0;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(198, 222, 60, 0.2);
+    }
+    
+    h1 {
+      text-align: center;
+      color: #333333;
+    }
+    
+    #question {
+      margin-bottom: 20px;
+    }
+    
+    #options {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    button {
+      display: block;
+      margin: 0 auto;
+      padding: 10px 20px;
+      background-color: yellow;
+      color: #131313;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      background-color: #8f8d8d;
+    }
+    </style>
+
+<!--JavaScript-->
+<script>
+    const quizData = [
+     {
+      question: "Du bliver hurtigere ædru hvis du danser meget.",
+      options: ["Myte", "Fakta"],
+      answer: "Myte"
+    },
+    {
+      question: "Myte. Man forbrænder ikke alkohol hurtigere om man danser meget, sover eller supplerer alkoholindtaget med vand.",
+      options: ["Næste spørgsmål"],
+      answer: "Næste spørgsmål"
+    },
+    {
+      question: "Man bliver hurtigere fuld hvis man er 16 end hvis man er voksen.",
+      options: ["Myte", "Fakta"],
+      answer: "Fakta"
+    },
+    {
+      question: "Danske unge er europamestre i at drikke.",
+      options: ["Myte", "Fakta"],
+      answer: "Fakta"
+    },
+    {
+      question: "Piger må drikke 14 genstande og drenge 21 genstande om ugen.",
+      options: ["Myte", "Fakta"],
+      answer: "Myte"
+    },
+    {
+      question: "Der er promillegrænser for, hvornår man må køre på cykel, ligesom når man kører bil.",
+      options: ["Myte", "Fakta"],
+      answer: "Fakta"
+    },
+    {
+      question: "Din temperatur stiger når du drikker alkohol",
+      options: ["Myte", "Fakta"],
+      answer: "Myte"
+    },
+    {
+      question: "Alkohol dræber hjerneceller",
+      options: ["Myte", "Fakta"],
+      answer: "Myte"
+    },
+    {
+      question: "Alkohol giver flere rynker",
+      options: ["Myte", "Fakta"],
+      answer: "Fakta"
+    },
+    ];
+
+    const questionElement = document.getElementById("question");
+  const optionsElement = document.getElementById("options");
+  
+  let currentQuestion = 0;
+  let score = 0;
+  
+  function showQuestion() {
+    const question = quizData[currentQuestion];
+    questionElement.innerText = question.question;
+  
+    optionsElement.innerHTML = "";
+    question.options.forEach(option => {
+      const button = document.createElement("button");
+      button.innerText = option;
+      optionsElement.appendChild(button);
+      button.addEventListener("click", selectAnswer);
+    });
+  }
+  
+  function selectAnswer(e) {
+    const selectedButton = e.target;
+    const answer = quizData[currentQuestion].answer;
+  
+    if (selectedButton.innerText === answer) {
+      score++;
+    }
+  
+    currentQuestion++;
+  
+    if (currentQuestion < quizData.length) {
+      showQuestion();
+    } else {
+      showResult();
+    }
+  }
+  
+  function showResult() {
+    quiz.innerHTML = `
+      <h1>Quiz Completed!</h1>
+      <p>Your score: ${score-1}/${quizData.length-1}</p>
+    `;
+  }
+  
+  showQuestion();
+
+</script>
