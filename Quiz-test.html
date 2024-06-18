@@ -42,7 +42,7 @@
       max-width: 800px;
       margin: 0 auto;
       padding: 40px;
-      height: 250px;
+      height: 400px;
       background-color: #B1BF93;
       border-radius: 10px;
       box-shadow: 0 0 15px #989898;
@@ -55,17 +55,18 @@
       color:#000000;
     }
     
-  /*Hvor stor afstand der nedderst på quizzen*/
+  /*Hvor stor afstand der er nedderst på quizzen*/
     #question {
       margin-bottom: 50px;
     }
     
   /*Opstillingen af knapperne til svarmulighederne. De vises i et grid, 2 spørgsmål af gangen vandret*/
     #options {
-      gap: 25px;
-      justify-content: center;
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
     }
     
   /*Udseendet til knapperne for svarmulighederne*/
@@ -82,6 +83,11 @@
       font-size: medium;
     }
     
+    /*Dette er placering af retry knappen til sidst i quizzen*/
+    button.retry {
+      margin: 20px auto;
+    }
+
   /*Hover effekt for knapperne med svarmulighederne*/
     button:hover {
       background-color: #ffffff;
@@ -245,7 +251,7 @@
     //spørgsmålet man lige har svaret på. Disse "spørgsmål" skal ikke give point
       `<h1>Du har gennemført quizzen!</h1>
       <p>Du scorede: ${score-9}/${quizData.length-9}</p>
-      <button id="retry">Prøv igen</button>`;
+      <button id="retry" class="retry">Prøv igen</button>`;
     //Til sidst er der en prøv igen knap
 
     //Her er retry knappen, med en eventListener der venter på at man klikker på knappen
@@ -261,3 +267,4 @@
   //showQuestion viser det første spørgsmål når koden kører for første gang
   showQuestion();
 </script>
+</html>
