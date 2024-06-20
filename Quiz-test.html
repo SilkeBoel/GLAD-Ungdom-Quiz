@@ -19,7 +19,7 @@
 </head>
 <body>
     <div id="quiz">
-        <h1>Myte eller fakta?</h1>
+        <h5>Myte eller fakta?</h5>
         <div id="question"></div>
         <div id="options"></div>
     </div>
@@ -34,25 +34,40 @@
       font-family: "Open Sans", sans-serif;
       font-size: large;
       color:#000000;
-      background-color: #ffffff;
+      background-color: #ffffff !important;
     } 
-  /*Her er udseenet på quizzen*/
-  /*Dette inkludere størrelsen, kanten, samt farverne*/
-    #quiz {
+
+    @media only screen and (max-width: 600px) {
+  #quiz {
+      display: flex;
+      flex-direction: column;
       max-width: 800px;
       margin: 0 auto;
       padding: 40px;
-      height: 400px;
-      background-color: #B1BF93;
+      background-color: #B1BF93 !important;
       border-radius: 10px;
-      box-shadow: 0 0 15px #989898;
+      box-shadow: 0 0 15px #989898 !important;
+  }
+}
+
+  /*Her er udseenet på quizzen*/
+  /*Dette inkludere størrelsen, kanten, samt farverne*/
+    #quiz {
+      display: flex;
+      flex-direction: column;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: #B1BF93 !important;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #989898 !important;
     }
     
   /*Udseendet af "overskriften" til quizzen kan findes her*/
-    h1 {
+    h5 {
       text-align: center;
       font-family: "Rubik", sans-serif;
-      color:#000000;
+      color:#000000 !important;
     }
     
   /*Hvor stor afstand der er nedderst på quizzen*/
@@ -74,9 +89,9 @@
     button {
       display: block;
       padding: 10px 20px;
-      background-color: #194841;
-      color: #ffffff;
-      border: none;
+      background-color: #194841 !important;
+      color: #ffffff !important;
+      border: none !important;
       border-radius: 5px;
       cursor: pointer;
       font-family: "Rubik", sans-serif;
@@ -90,8 +105,9 @@
 
   /*Hover effekt for knapperne med svarmulighederne*/
     button:hover {
-      background-color: #ffffff;
-      color: #000000;
+      background-color: #FC9F5B !important;
+      color: #000000 !important;
+      transition: all .4s ease;
     }
     </style>
 
@@ -113,7 +129,7 @@
       answer: "Myte"
     },
     {
-      question: "Myte! Man forbrænder ikke alkohol hurtigere om man danser meget, sover eller supplerer alkoholindtaget med vand.",
+      question: "Myte! Man bliver ikke hurtigere ædru om man danser meget, sover eller supplerer alkoholindtaget med vand.",
       options: ["Næste spørgsmål"],
       answer: "Næste spørgsmål"
     },
@@ -189,7 +205,7 @@
     },
     ];
   
-  //Her bliver spørgsmålene og svarmulighederne hentet
+  //Her bliver spørgsmålene, svarmulighederne og placeringen af quizzen defineret
   const questionElement = document.getElementById("question");
   const optionsElement = document.getElementById("options");
   const quizElement = document.getElementById("quiz");
@@ -249,7 +265,7 @@
     //Herefter viser den ens point/antal rigtige svar i quizzen.
     //Der er -9, da quizzen starter med et "spørgmålet" om man vil tage quizzen, og hvert andet "spørgsmål" er et svar/en forklaring af
     //spørgsmålet man lige har svaret på. Disse "spørgsmål" skal ikke give point
-      `<h1>Du har gennemført quizzen!</h1>
+      `<h5>Du har gennemført quizzen!</h5>
       <p>Du scorede: ${score-9}/${quizData.length-9}</p>
       <button id="retry" class="retry">Prøv igen</button>`;
     //Til sidst er prøv igen knappen, der også er blevet givet en class, så den kan redigeres med CSS
