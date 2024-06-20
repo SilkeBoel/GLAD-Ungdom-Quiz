@@ -19,7 +19,7 @@
 </head>
 <body>
     <div id="quiz">
-        <h5>Myte eller fakta?</h5>
+        <h3>Myte eller fakta?</h3>
         <div id="question"></div>
         <div id="options"></div>
     </div>
@@ -37,19 +37,6 @@
       background-color: #ffffff !important;
     } 
 
-    @media only screen and (max-width: 600px) {
-  #quiz {
-      display: flex;
-      flex-direction: column;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 40px;
-      background-color: #B1BF93 !important;
-      border-radius: 10px;
-      box-shadow: 0 0 15px #989898 !important;
-  }
-}
-
   /*Her er udseenet på quizzen*/
   /*Dette inkludere størrelsen, kanten, samt farverne*/
     #quiz {
@@ -64,10 +51,11 @@
     }
     
   /*Udseendet af "overskriften" til quizzen kan findes her*/
-    h5 {
+    h3 {
       text-align: center;
       font-family: "Rubik", sans-serif;
       color:#000000 !important;
+      font-size: 3em !important;
     }
     
   /*Hvor stor afstand der er nedderst på quizzen*/
@@ -129,7 +117,7 @@
       answer: "Myte"
     },
     {
-      question: "Myte! Man bliver ikke hurtigere ædru om man danser meget, sover eller supplerer alkoholindtaget med vand.",
+      question: "Myte!\nMan bliver ikke hurtigere ædru om man danser meget, sover eller supplerer alkoholindtaget med vand.",
       options: ["Næste spørgsmål"],
       answer: "Næste spørgsmål"
     },
@@ -139,7 +127,7 @@
       answer: "Fakta"
     },
     {
-      question: "Fakta! Det har ikke noget med alderen at gøre, men det fact at 16-årige ikke er færdig med at vokse endnu, og ikke har opbygget en alkoholtolerance som nogle voksne har.",
+      question: "Fakta!\nDet har ikke noget med alderen at gøre, men det fact at 16-årige ikke er færdig med at vokse endnu, og ikke har opbygget en alkoholtolerance som nogle voksne har.",
       options: ["Næste spørgsmål"],
       answer: "Næste spørgsmål"
     },
@@ -149,7 +137,7 @@
       answer: "Fakta"
     },
     {
-      question: "Fakta! Andel af de 15 til 16-årige, der har drukket alkohol indenfor sidste måned var, ifølge en undersøgelse fra 2019, 74% modsat gennemsnittet i resten af europa på 47%",
+      question: "Fakta!\nAndel af de 15 til 16-årige, der har drukket alkohol indenfor sidste måned var, ifølge en undersøgelse fra 2019, 74% modsat gennemsnittet i resten af europa på 47%",
       options: ["Næste spørgsmål"],
       answer: "Næste spørgsmål"
     },
@@ -159,7 +147,7 @@
       answer: "Myte"
     },
     {
-      question: "Myte! Genstandsgrænserne gælder kun for voksne – unge kan tåle meget mindre. Tallene angiver ikke, hvor meget voksne gerne må drikke, men at det er sundhedsskadeligt at drikke mere. Derfor kaldes det højrisikogrænsen.",
+      question: "Myte!\nGenstandsgrænserne gælder kun for voksne – unge kan tåle meget mindre. Tallene angiver ikke, hvor meget voksne gerne må drikke, men at det er sundhedsskadeligt at drikke mere. Derfor kaldes det højrisikogrænsen.",
       options: ["Næste spørgsmål"],
       answer: "Næste spørgsmål"
     },
@@ -169,7 +157,7 @@
       answer: "Fakta"
     },
     {
-      question: "Fakta! Man må højst have en promille på 0,5, når man kører på cykel.",
+      question: "Fakta!\nMan må højst have en promille på 0,5, når man kører på cykel.",
       options: ["Næste spørgsmål"],
       answer: "Næste spørgsmål"
     },
@@ -179,7 +167,7 @@
       answer: "Myte"
     },
     {
-      question: "Myte! Du vil føle dig varmere, men din temperatur vil ikke stige.",
+      question: "Myte!\nDu vil føle dig varmere, men din temperatur vil ikke stige.",
       options: ["Næste spørgsmål"],
       answer: "Næste spørgsmål"
     },
@@ -189,7 +177,7 @@
       answer: "Myte"
     },
     {
-      question: "Myte! Det dræber ikke hjerneceller, men kan skade hjernen hvis man drikker meget og ofte",
+      question: "Myte!\nDet dræber ikke hjerneceller, men kan skade hjernen hvis man drikker meget og ofte",
       options: ["Næste spørgsmål"],
       answer: "Næste spørgsmål"
     },
@@ -199,7 +187,7 @@
       answer: "Fakta"
     },
     {
-      question: "Fakta! Hvis du drikker for meget for ofte, nedsætter alkoholen mængden af det hormon, der får nyrerne til at holde på vandet i kroppen, så du udskiller mere vand. Det giver hovedpine, men betyder også, at din hud bliver mere udtørret, hvilket kan føre til flere rynker.",
+      question: "Fakta!\nHvis du drikker for meget for ofte, nedsætter alkoholen mængden af det hormon, der får nyrerne til at holde på vandet i kroppen, så du udskiller mere vand. Det giver hovedpine, men betyder også, at din hud bliver mere udtørret, hvilket kan føre til flere rynker.",
       options: ["Næste spørgsmål"],
       answer: "Næste spørgsmål"
     },
@@ -265,7 +253,7 @@
     //Herefter viser den ens point/antal rigtige svar i quizzen.
     //Der er -9, da quizzen starter med et "spørgmålet" om man vil tage quizzen, og hvert andet "spørgsmål" er et svar/en forklaring af
     //spørgsmålet man lige har svaret på. Disse "spørgsmål" skal ikke give point
-      `<h5>Du har gennemført quizzen!</h5>
+      `<h3>Du har gennemført quizzen!</h3>
       <p>Du scorede: ${score-9}/${quizData.length-9}</p>
       <button id="retry" class="retry">Prøv igen</button>`;
     //Til sidst er prøv igen knappen, der også er blevet givet en class, så den kan redigeres med CSS
